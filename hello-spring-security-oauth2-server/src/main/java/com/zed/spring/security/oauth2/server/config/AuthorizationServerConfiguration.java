@@ -40,16 +40,19 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
+        // config datasource
         return DataSourceBuilder.create().build();
     }
 
     @Bean
     public TokenStore tokenStore() {
+        // put token to database
         return new JdbcTokenStore(dataSource());
     }
 
     @Bean
     public ClientDetailsService jdbcClientDetailsService() {
+        // read client's config from database
         return new JdbcClientDetailsService(dataSource());
     }
 

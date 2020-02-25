@@ -1,7 +1,10 @@
 package com.zed.spring.security.oauth2.server.mapper;
 
 import com.zed.spring.security.oauth2.server.domain.TbPermission;
+import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.MyMapper;
+
+import java.util.List;
 
 /**
   * @author Zed
@@ -9,4 +12,5 @@ import tk.mybatis.mapper.MyMapper;
   * @contact shadowl91@163.com
   */
 public interface TbPermissionMapper extends MyMapper<TbPermission> {
+    List<TbPermission> selectByUserId(@Param("id") Long id);
 }

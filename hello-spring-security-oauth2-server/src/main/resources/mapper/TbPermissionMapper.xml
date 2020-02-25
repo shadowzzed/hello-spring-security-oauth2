@@ -17,4 +17,12 @@
     <!--@mbg.generated generated on Tue Feb 25 01:20:53 CST 2020.-->
     id, parent_id, `name`, enname, url, description, created, updated
   </sql>
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    select p.* from tb_user as u left join tb_user_role as ur on u.id = ur.user_id
+    left join tb_role as r on r.id = ur.role_id
+    left join tb_role_permission as rp on r.id = rp.role_id
+    left join tb_permission as p on p.id = rp.permission_id
+    where u.id = #{id}
+</select>
+
 </mapper>

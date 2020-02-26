@@ -20,6 +20,6 @@ public class AuthroizationServerConfigurationTest {
 
     @Test
     public void test() {
-        System.out.println(passwordEncoder.encode("secret"));
+        System.out.println(passwordEncoder.encode("123456"));
     }
 }
